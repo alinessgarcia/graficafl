@@ -38,11 +38,15 @@ body {
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: auto;
+    max-height: 150px;
     object-fit: contain;
     margin-bottom: 2rem;
     animation: fadeInDown 1s ease-out;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .hero-title {
@@ -469,8 +473,8 @@ body {
     }
     
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        max-height: 100px;
     }
     
     .hero-services {

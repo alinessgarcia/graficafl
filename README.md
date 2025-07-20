@@ -39,7 +39,7 @@ grafica-expressa/
 │   ├── favicon.ico
 │   ├── favicon-32x32.png
 │   ├── favicon-192x192.png
-│   ├── whatsapp.jpg
+│   ├── whats.png
 │   └── site.webmanifest
 └── README.md
 ```

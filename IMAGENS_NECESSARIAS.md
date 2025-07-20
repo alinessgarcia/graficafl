@@ -11,7 +11,7 @@
 - `android-chrome-512x512.png` ✅
 
 ### ✅ Ícones
-- `whatsapp.jpg` ✅ - Ícone do WhatsApp funcionando
+- `whats.png` ✅ - Ícone do WhatsApp funcionando
 
 ### 📁 Imagens Adicionais Disponíveis
 - `graficafl-bg.png` - Imagem adicional (pode ser usada como background)
