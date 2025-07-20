@@ -109,10 +109,10 @@ body {
 /* Hero Services Destacados */
 .hero-services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
     margin: 3rem 0;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .service-highlight {
@@ -164,6 +164,14 @@ body {
 
 .shirt-service {
     border-left: 4px solid #FF3547;
+}
+
+.print-service {
+    border-left: 4px solid #9C27B0;
+}
+
+.digital-service {
+    border-left: 4px solid #FF9800;
 }
 
 /* Instagram link */
@@ -449,6 +457,11 @@ body {
 
     .hero-subtitle {
         font-size: 1rem;
+    }
+    
+    .hero-services {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
     }
 
     .section-title {
