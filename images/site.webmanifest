@@ -1,0 +1,19 @@
+{
+    "name": "Gráfica Expressa",
+    "short_name": "Gráfica Expressa",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#004AAD",
+    "background_color": "#E3F2FD",
+    "display": "standalone"
+}
