@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
-        once: true,
-        offset: 100
+        once: false,
+        offset: 100,
+        mirror: true
     });
     
     // Mostrar banner de cookies
