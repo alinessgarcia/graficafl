@@ -38,8 +38,9 @@ body {
 }
 
 .logo {
-    width: 200px;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
     margin-bottom: 2rem;
     animation: fadeInDown 1s ease-out;
 }
@@ -82,6 +83,75 @@ body {
 .whatsapp-icon {
     width: 24px;
     height: 24px;
+}
+
+/* Hero Services Destacados */
+.hero-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+    max-width: 800px;
+}
+
+.service-highlight {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.service-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-highlight h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #004AAD;
+    margin-bottom: 0.5rem;
+}
+
+.service-highlight p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Cores específicas para cada serviço */
+.cpf-service {
+    border-left: 4px solid #FF6B35;
+}
+
+.mei-service {
+    border-left: 4px solid #004AAD;
+}
+
+.design-service {
+    border-left: 4px solid #00C851;
+}
+
+.shirt-service {
+    border-left: 4px solid #FF3547;
+}
+
+/* Instagram link */
+.instagram-link {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
 }
 
 /* Services Section */
@@ -399,7 +469,30 @@ body {
     }
     
     .logo {
-        width: 150px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .hero-services {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .service-highlight {
+        padding: 1rem;
+    }
+    
+    .service-icon {
+        font-size: 1.8rem;
+    }
+    
+    .service-highlight h3 {
+        font-size: 0.95rem;
+    }
+    
+    .service-highlight p {
+        font-size: 0.8rem;
     }
     
     .services {
