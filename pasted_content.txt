@@ -1,0 +1,165 @@
+> Crie um site institucional moderno, leve e totalmente responsivo para a “Gráfica Expressa”, localizada em Guarujá/SP. O design deve transmitir profissionalismo, confiabilidade e acolhimento, usando tons de azul e branco, tipografia sem serifa e muito espaço em branco. Inclua animações suaves ao rolar a página para dar “vida” ao layout.
+
+
+
+
+---
+
+1. Hero (Above the Fold)
+
+Fundo com banner suave (pode ser um gradiente de azul claro para branco).
+
+Logo no centro-topo (use este link: https://i.imgur.com/qqZrMNG.png).
+
+Título grande:
+
+> Gráfica Expressa
+
+
+
+Subtítulo:
+
+> “Consultas Digitais & Impressões Rápidas em Segundos”
+
+
+
+Botão CTA:
+
+Texto: “Fale Conosco via WhatsApp”
+
+Link: https://wa.me/5513988032386
+
+Ícone de WhatsApp ao lado (use: https://i.imgur.com/mj9IQFE.png)
+
+Efeito: hover leve (scale 1.05)
+
+
+
+
+---
+
+2. Seção de Serviços (Cards Animados)
+
+Título da seção: “Nossos Serviços”
+
+Grid responsivo (3 colunas no desktop, 1 coluna no mobile).
+
+Cada card deve ter:
+
+Imagem de amostra (pode ser placeholder)
+
+Título curto do serviço
+
+Descrição breve (1 linha)
+
+Efeito ao scroll: fade-in + translateY(20px)
+
+Hover: brilho suave (box-shadow com glow)
+
+
+Serviços a incluir:
+
+1. Consultas CPF – Score de crédito, empresas vinculadas e antecedentes
+
+
+2. Atendimento Meu INSS – Extrato CNIS, agendamento de perícia, benefícios
+
+
+3. MEI – Abertura, declaração anual, emissão de DAS, alterações cadastrais
+
+
+4. Design Gráfico – Panfletos, cartões de visita, banners, adesivos
+
+
+5. Impressões Rápidas – Documentos, folhetos, rótulos e mais
+
+
+6. Serviços Adicionais – RG digital, certidões e segunda via de documentos
+
+
+
+
+
+---
+
+3. Galeria de Elogios (Testimonials)
+
+Título: “O Que Nossos Clientes Dizem”
+
+Carousel ou grid 3-colunas / 1-coluna no mobile.
+
+Cada depoimento:
+
+Texto entre aspas (ex.: “Atendimento rápido e super eficiente!”)
+
+Nome (ex.: Ana L., Robson M.)
+
+Animação de entrada: fade-in + delay escalonado (0.2s, 0.4s, 0.6s)
+
+
+
+
+---
+
+4. Aviso de Cookies
+
+Banner discreto no rodapé com fundo semitransparente escuro.
+
+Texto:
+
+> “Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa Política de Cookies.”
+
+
+
+Botão “Entendi” ou “Fechar” que, ao clicar, oculta o banner (JS simples).
+
+Layout: ocupa altura de 60px, texto centralizado.
+
+
+
+---
+
+5. Botão Fixo de WhatsApp
+
+Ícone de WhatsApp flutuante no canto inferior direito.
+
+Tamanho: 60×60 px, bordas arredondadas.
+
+Ao clicar, abre https://wa.me/5513988032386 em nova aba.
+
+Efeito hover: leve elevação (shadow) e mudança de cor de fundo.
+
+
+
+---
+
+6. Footer
+
+Fundo azul escuro (#004AAD), texto branco.
+
+Itens:
+
+Nome da empresa
+
+Endereço resumido (Rua Exemplo, 123 – Bairro, Guarujá/SP)
+
+Ano: © 2025 Gráfica Expressa
+
+
+Links de política de cookies e privacidade (ancoras #).
+
+
+
+---
+
+Observações de Animação e Estilo
+
+Scroll suave geral (scroll-behavior: smooth).
+
+AOS ou biblioteca similar para efeitos de fade-in/slide.
+
+Uso de Tailwind CSS ou CSS customizado (sem depender de frameworks JS pesados).
+
+Tipografia: Poppins ou Montserrat (Google Fonts).
+
+Ícones: SVG inline ou FontAwesome.
