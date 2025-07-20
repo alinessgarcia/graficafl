@@ -200,3 +200,38 @@ window.addEventListener('load', function() {
     }, 1500);
 });
 
+// Funcionalidade do logo - voltar ao topo
+document.addEventListener('DOMContentLoaded', function() {
+    const logoLink = document.querySelector('.logo-link');
+    
+    if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Scroll suave para o topo
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Efeito visual no logo
+            const logo = this.querySelector('.logo');
+            logo.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                logo.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Efeito hover adicional
+        logoLink.addEventListener('mouseenter', function() {
+            const logo = this.querySelector('.logo');
+            logo.style.boxShadow = '0 4px 15px rgba(0, 74, 173, 0.3)';
+        });
+        
+        logoLink.addEventListener('mouseleave', function() {
+            const logo = this.querySelector('.logo');
+            logo.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        });
+    }
+});
