@@ -214,24 +214,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
             
-            // Efeito visual no logo
-            const logo = this.querySelector('.logo');
-            logo.style.transform = 'scale(0.95)';
+            // Efeito visual no logo - afundar mais
+            this.style.transform = 'translateY(5px)';
             
             setTimeout(() => {
-                logo.style.transform = 'scale(1)';
+                this.style.transform = 'translateY(0)';
             }, 150);
         });
         
-        // Efeito hover adicional
+        // Efeito hover adicional - apenas visual feedback
         logoLink.addEventListener('mouseenter', function() {
             const logo = this.querySelector('.logo');
-            logo.style.boxShadow = '0 4px 15px rgba(0, 74, 173, 0.3)';
+            logo.style.opacity = '0.8';
         });
         
         logoLink.addEventListener('mouseleave', function() {
             const logo = this.querySelector('.logo');
-            logo.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            logo.style.opacity = '1';
         });
     }
 });

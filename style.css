@@ -53,7 +53,7 @@ body {
 }
 
 .logo-link:hover {
-    transform: scale(1.05);
+    transform: translateY(3px);
 }
 
 .logo {
@@ -62,10 +62,6 @@ body {
     max-height: 100px;
     object-fit: contain;
     animation: fadeInDown 1s ease-out;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    padding: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -172,7 +168,7 @@ body {
 
 /* Instagram link */
 .instagram-link {
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -400,6 +396,7 @@ body {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -411,6 +408,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -421,9 +419,11 @@ body {
     0% {
         box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
     }
+
     50% {
         box-shadow: 0 5px 20px rgba(37, 211, 102, 0.6);
     }
+
     100% {
         box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
     }
@@ -438,57 +438,57 @@ body {
         text-align: center;
         margin-bottom: 2rem;
     }
-    
+
     .hero-content {
         margin-top: 0;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .testimonials-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .footer-content {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
-    
+
     .footer-links {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .cookie-content {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
-    
+
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
         width: 50px;
         height: 50px;
     }
-    
+
     .whatsapp-float img {
         width: 30px;
         height: 30px;
@@ -500,11 +500,11 @@ body {
     .container {
         padding: 0 15px;
     }
-    
+
     .hero {
         padding: 2rem 0;
     }
-    
+
     .hero-header {
         position: relative;
         top: auto;
@@ -512,53 +512,52 @@ body {
         text-align: center;
         margin-bottom: 1.5rem;
     }
-    
+
     .hero-content {
         margin-top: 0;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .logo {
         width: 100px;
         max-height: 80px;
     }
-    
+
     .hero-services {
         grid-template-columns: 1fr;
         gap: 1rem;
         margin: 1.5rem 0;
     }
-    
+
     .service-highlight {
         padding: 1rem;
     }
-    
+
     .service-icon {
         font-size: 1.8rem;
     }
-    
+
     .service-highlight h3 {
         font-size: 0.95rem;
     }
-    
+
     .service-highlight p {
         font-size: 0.8rem;
     }
-    
+
     .services {
         padding: 60px 0;
     }
-    
+
     .testimonials {
         padding: 60px 0;
     }
-    
+
     .service-card,
     .testimonial-card {
         padding: 1.5rem;
     }
 }
-
