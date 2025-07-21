@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adicionar animações extras
     setupExtraAnimations();
     
-    // Configurar popups dos serviços
-    setupServicePopups();
+    // Configurar popups dos serviços com delay para garantir que DOM está pronto
+    setTimeout(() => {
+        setupServicePopups();
+    }, 100);
 });
 
 // Função para mostrar o banner de cookies
@@ -360,11 +362,27 @@ function setupServicePopups() {
     const popupClose = document.getElementById('popup-close');
     const popupContent = document.getElementById('popup-content');
     
+    console.log('Setting up popups:', {
+        serviceButtons: serviceButtons.length,
+        popupOverlay: !!popupOverlay,
+        popupClose: !!popupClose,
+        popupContent: !!popupContent
+    });
+    
     // Event listeners para botões "Saiba Mais"
-    serviceButtons.forEach(button => {
-        button.addEventListener('click', function() {
+    serviceButtons.forEach((button, index) => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const serviceCard = this.closest('.service-card-modern');
+            if (!serviceCard) {
+                console.error('Service card not found for button', index);
+                return;
+            }
+            
             const serviceType = serviceCard.getAttribute('data-service');
+            console.log('Opening popup for service:', serviceType);
             openServicePopup(serviceType);
         });
     });
@@ -402,7 +420,10 @@ function openServicePopup(serviceType) {
     const popupOverlay = document.getElementById('service-popup-overlay');
     const popupContent = document.getElementById('popup-content');
     
-    if (!service) return;
+    if (!service || !popupOverlay || !popupContent) {
+        console.error('Popup elements not found:', { service: !!service, popupOverlay: !!popupOverlay, popupContent: !!popupContent });
+        return;
+    }
     
     // Gerar HTML do popup
     const popupHTML = `
@@ -448,6 +469,8 @@ function openServicePopup(serviceType) {
     popupContent.innerHTML = popupHTML;
     popupOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
 }
 
 function closeServicePopup() {
@@ -455,6 +478,7 @@ function closeServicePopup() {
     if (popupOverlay) {
         popupOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.position = '';
     }
 }
 

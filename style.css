@@ -16,12 +16,10 @@ body {
     overflow-x: hidden;
     background-color: #ffffff;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 main {
-    flex: 1;
+    width: 100%;
 }
 
 .container {
@@ -442,6 +440,7 @@ main {
     left: 0;
     right: 0;
     background: rgba(15, 23, 42, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
     padding: 24px;
@@ -620,6 +619,7 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
 /*
  ===== NOVA SEÇÃO DE SERVIÇOS - DESIGN MODERNO ===== */
 
@@ -688,6 +688,7 @@ main {
 /* Cards Modernos */
 .service-card-modern {
     background: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     overflow: hidden;
@@ -896,30 +897,30 @@ main {
     .services-modern {
         padding: 80px 0;
     }
-    
+
     .services-title {
         font-size: 2.5rem;
     }
-    
+
     .services-grid-modern {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .service-card-modern {
         margin: 0 1rem;
     }
-    
+
     .service-header-modern,
     .service-body-modern {
         padding: 1.5rem;
     }
-    
+
     .cta-gradient {
         padding: 2rem;
         margin: 0 1rem;
     }
-    
+
     .cta-title {
         font-size: 1.75rem;
     }
@@ -929,26 +930,26 @@ main {
     .services-title {
         font-size: 2rem;
     }
-    
+
     .services-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .service-header-modern,
     .service-body-modern {
         padding: 1.25rem;
     }
-    
+
     .cta-title {
         font-size: 1.5rem;
     }
-    
+
     .cta-description {
         font-size: 1rem;
     }
 }
-/
-* ===== POPUPS DOS SERVIÇOS ===== */
+
+/* ===== POPUPS DOS SERVIÇOS ===== */
 
 .popup-overlay {
     position: fixed;
@@ -957,8 +958,8 @@ main {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1152,19 +1153,19 @@ main {
         width: 95%;
         max-height: 85vh;
     }
-    
+
     .popup-content {
         padding: 2rem;
     }
-    
+
     .popup-title {
         font-size: 1.75rem;
     }
-    
+
     .popup-actions {
         flex-direction: column;
     }
-    
+
     .popup-btn {
         padding: 1.25rem;
     }
@@ -1174,16 +1175,16 @@ main {
     .popup-content {
         padding: 1.5rem;
     }
-    
+
     .popup-title {
         font-size: 1.5rem;
     }
-    
+
     .popup-icon {
         width: 60px;
         height: 60px;
     }
-    
+
     .popup-icon svg {
         width: 30px;
         height: 30px;
