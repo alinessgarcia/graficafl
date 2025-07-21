@@ -63,10 +63,9 @@ body {
 
 /* Botão WhatsApp sobre o shape verde da imagem */
 .whatsapp-shape-button {
-    position: fixed;
-    top: 67.5vh;
-    left: 11vw;
-    transform: translateY(-50%);
+    position: absolute;
+    top: 64.5%;
+    left: 11%;
     background: transparent;
     color: white;
     font-size: 1.4rem;
@@ -82,7 +81,7 @@ body {
 
 .whatsapp-shape-button:hover {
     background: rgba(37, 211, 102, 0.2);
-    transform: translateY(-50%) scale(1.05);
+    transform: scale(1.05);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
