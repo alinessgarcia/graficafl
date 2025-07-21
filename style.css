@@ -322,7 +322,7 @@ body {
 
 /* Footer - Corporate */
 .footer {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #ae0cdd 0%, #86a1eb 100%);
     color: white;
     padding: 60px 0 30px;
     position: relative;
@@ -335,7 +335,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.0), transparent);
 }
 
 .footer-content {
@@ -352,7 +352,7 @@ body {
 }
 
 .footer-info p {
-    color: #cbd5e1;
+    color: #ffffff;
     font-size: 1.1rem;
 }
 
@@ -365,7 +365,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    color: #cbd5e1;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -377,7 +377,7 @@ body {
 .instagram-link:hover {
     color: white;
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -395,7 +395,7 @@ body {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #94a3b8;
+    color: #ffffff;
 }
 
 /* WhatsApp Float Button - Professional */
