@@ -25,7 +25,8 @@ body {
 
 /* Hero Section - Corporate Style */
 .hero {
-    background: url('images/arte-graficafl-hero.jpg') center/cover no-repeat;
+    background: url('images/arte-graficafl-hero.jpg') center center/cover no-repeat;
+    background-attachment: scroll;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -479,27 +480,29 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero {
+        background: url('images/arte-graficafl-hero-mobile2.jpg') center center/cover no-repeat;
+    }
+
     .hero-header {
         position: fixed;
         top: 16px;
-        left: 16px;
-        right: 16px;
-        text-align: center;
+        left: 0px;
+        right: auto;
+        text-align: left;
         margin-bottom: 0;
     }
 
     .hero-header.scrolled {
         top: 12px;
-        left: 12px;
-        right: 12px;
+        left: 0px;
+        right: auto;
         padding: 6px 10px;
     }
 
     .whatsapp-shape-button {
-        top: 80%;
-        left: 6%;
-        font-size: 0.9rem;
-        padding: 8px 16px;
+        display: none;
+        /* Esconde o botão no mobile */
     }
 
     .hero-content {
@@ -573,7 +576,7 @@ body {
     }
 
     .logo {
-        width: 120px;
+        width: 80px;
         max-height: 100px;
     }
 
