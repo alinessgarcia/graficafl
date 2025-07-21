@@ -201,9 +201,10 @@ window.addEventListener('load', function() {
     }, 1500);
 });
 
-// Funcionalidade do logo - voltar ao topo
+// Funcionalidade do logo - voltar ao topo e sticky header
 document.addEventListener('DOMContentLoaded', function() {
     const logoLink = document.querySelector('.logo-link');
+    const heroHeader = document.querySelector('.hero-header');
     
     if (logoLink) {
         logoLink.addEventListener('click', function(e) {
@@ -232,6 +233,19 @@ document.addEventListener('DOMContentLoaded', function() {
         logoLink.addEventListener('mouseleave', function() {
             const logo = this.querySelector('.logo');
             logo.style.opacity = '1';
+        });
+    }
+    
+    // Sticky header functionality
+    if (heroHeader) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            
+            if (scrolled > 100) {
+                heroHeader.classList.add('scrolled');
+            } else {
+                heroHeader.classList.remove('scrolled');
+            }
         });
     }
 });
