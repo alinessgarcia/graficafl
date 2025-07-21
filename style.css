@@ -25,8 +25,7 @@ body {
 
 /* Hero Section - Corporate Style */
 .hero {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 50%, rgba(51, 65, 85, 0.8) 100%), 
-                url('images/arte-graficafl-hero.jpg') center/cover no-repeat;
+    background: url('images/arte-graficafl-hero.jpg') center/cover no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -34,17 +33,6 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 23, 42, 0.3);
-    backdrop-filter: blur(1px);
 }
 
 /* Sticky Header com Logo */
@@ -59,11 +47,6 @@ body {
 .hero-header.scrolled {
     top: 16px;
     left: 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 8px 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content {
@@ -71,6 +54,36 @@ body {
     margin-top: 80px;
     position: relative;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+/* Botão WhatsApp sobre o shape verde da imagem */
+.whatsapp-shape-button {
+    position: fixed;
+    top: 67.5vh;
+    left: 11vw;
+    transform: translateY(-50%);
+    background: transparent;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.whatsapp-shape-button:hover {
+    background: rgba(37, 211, 102, 0.2);
+    transform: translateY(-50%) scale(1.05);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .logo-link {
@@ -99,24 +112,7 @@ body {
     filter: brightness(1) contrast(1.1);
 }
 
-.hero-title {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
 
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #cbd5e1;
-    margin-bottom: 3rem;
-    font-weight: 400;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .cta-button {
     display: inline-flex;
@@ -145,70 +141,7 @@ body {
     height: 24px;
 }
 
-/* Hero Services - Corporate Grid */
-.hero-services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin: 4rem 0;
-    max-width: 1000px;
-}
 
-.service-highlight {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.service-highlight::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.service-highlight:hover::before {
-    transform: scaleX(1);
-}
-
-.service-highlight:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
-}
-
-.service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-    filter: grayscale(0.2);
-}
-
-.service-highlight h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-}
-
-.service-highlight p {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin: 0;
-    line-height: 1.5;
-}
 
 /* Services Section - Professional Layout */
 .services {
@@ -555,7 +488,7 @@ body {
         text-align: center;
         margin-bottom: 0;
     }
-    
+
     .hero-header.scrolled {
         top: 12px;
         left: 12px;
@@ -563,22 +496,18 @@ body {
         padding: 6px 10px;
     }
 
+    .whatsapp-shape-button {
+        top: 80%;
+        left: 6%;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
     .hero-content {
         margin-top: 0;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
-    }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .hero-services {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
 
     .section-title {
         font-size: 2.25rem;
@@ -633,6 +562,13 @@ body {
         padding: 2rem 0;
     }
 
+    .whatsapp-shape-button {
+        top: 75%;
+        left: 4%;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
@@ -641,7 +577,7 @@ body {
         width: 120px;
         max-height: 100px;
     }
-    
+
     .hero-header.scrolled .logo {
         width: 60px;
         max-height: 40px;
