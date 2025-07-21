@@ -272,14 +272,15 @@ main {
 }
 
 .testimonial-card {
-    background: #f8fafc;
-    border-radius: 20px;
-    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
     text-align: left;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e5e7eb;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .testimonial-card::before {
@@ -288,42 +289,47 @@ main {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 6px;
-    background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+    width: 4px;
+    background: linear-gradient(180deg, #fbbf24, #f59e0b);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-    background: white;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
 }
 
 .testimonial-card p {
     font-style: italic;
-    font-size: 1.1rem;
-    color: #374151;
+    font-size: 1rem;
+    color: #4b5563;
     margin-bottom: 1.5rem;
     position: relative;
-    line-height: 1.7;
-    padding-left: 1rem;
+    line-height: 1.6;
+    padding-left: 0;
 }
 
 .testimonial-card p::before {
-    content: '"';
-    font-size: 4rem;
-    color: #3b82f6;
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    font-family: Georgia, serif;
-    opacity: 0.3;
+    content: '★★★★★';
+    display: block;
+    color: #fbbf24;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-style: normal;
 }
 
 .client-name {
     font-weight: 600;
-    color: #1e293b;
+    color: #1f2937;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.client-name::before {
+    content: '👤';
     font-size: 1rem;
-    padding-left: 1rem;
 }
 
 /* Footer - Corporate */
@@ -1174,64 +1180,118 @@ main {
 }
 
 .popup-btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    color: #10b981;
+    color: #059669;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .popup-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
+    color: #047857;
 }
 
 .whatsapp-text {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* Responsive Popups */
 @media (max-width: 768px) {
+    .popup-overlay {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
     .popup-container {
-        width: 95%;
-        max-height: 85vh;
+        width: 100%;
+        max-width: 420px;
+        max-height: calc(100vh - 4rem);
+        margin: 0 auto;
+    }
+
+    .popup-header {
+        padding: 1.25rem;
     }
 
     .popup-content {
-        padding: 2rem;
+        padding: 1.25rem;
     }
 
     .popup-title {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
+    }
+
+    .popup-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .popup-features h4 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .features-list {
+        gap: 0.5rem;
+    }
+
+    .feature-text {
+        font-size: 0.85rem;
     }
 
     .popup-actions {
         flex-direction: column;
+        gap: 0.5rem;
     }
 
     .popup-btn {
-        padding: 1.25rem;
+        padding: 0.875rem;
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
+    .popup-overlay {
+        padding: 0.25rem;
+        padding-top: 1rem;
+    }
+    
+    .popup-container {
+        max-height: calc(100vh - 2rem);
+    }
+
+    .popup-header {
+        padding: 1rem;
+    }
+
     .popup-content {
-        padding: 1.5rem;
-    }
-
-    .popup-title {
-        font-size: 1.5rem;
-    }
-
-    .popup-icon {
-        width: 60px;
-        height: 60px;
+        padding: 1rem;
     }
 
     .popup-icon svg {
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .popup-title {
+        font-size: 1.125rem;
+    }
+
+    .popup-description {
+        font-size: 0.85rem;
+    }
+
+    .features-list {
+        gap: 0.4rem;
+    }
+
+    .feature-text {
+        font-size: 0.8rem;
     }
 }
