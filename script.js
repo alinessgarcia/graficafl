@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
-        once: false,
-        offset: 100,
-        mirror: true
+        once: true,
+        offset: 50,
+        mirror: false
     });
     
     // Mostrar banner de cookies
@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Adicionar animações extras
     setupExtraAnimations();
+    
+    // Configurar popups dos serviços
+    setupServicePopups();
 });
 
 // Função para mostrar o banner de cookies
@@ -26,7 +29,7 @@ function showCookieBanner() {
     const cookieBanner = document.getElementById('cookie-banner');
     const cookieAccepted = localStorage.getItem('cookieAccepted');
     
-    if (!cookieAccepted) {
+    if (!cookieAccepted && cookieBanner) {
         setTimeout(() => {
             cookieBanner.classList.add('show');
         }, 2000);
@@ -38,14 +41,16 @@ function setupCookieButton() {
     const cookieButton = document.getElementById('cookie-accept');
     const cookieBanner = document.getElementById('cookie-banner');
     
-    cookieButton.addEventListener('click', function() {
-        localStorage.setItem('cookieAccepted', 'true');
-        cookieBanner.classList.remove('show');
-        
-        setTimeout(() => {
-            cookieBanner.style.display = 'none';
-        }, 300);
-    });
+    if (cookieButton && cookieBanner) {
+        cookieButton.addEventListener('click', function() {
+            localStorage.setItem('cookieAccepted', 'true');
+            cookieBanner.classList.remove('show');
+            
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 300);
+        });
+    }
 }
 
 // Função para configurar scroll suave
@@ -346,10 +351,7 @@ const servicesData = {
     }
 };
 
-// Adicionar setup dos popups ao DOMContentLoaded existente
-document.addEventListener('DOMContentLoaded', function() {
-    setupServicePopups();
-});
+// Setup dos popups será chamado no DOMContentLoaded principal
 
 function setupServicePopups() {
     const serviceButtons = document.querySelectorAll('.service-btn-primary');
