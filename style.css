@@ -25,7 +25,7 @@ body {
 
 /* Hero Section - Corporate Style */
 .hero {
-    background: url('images/arte-graficafl-hero.jpg') center center/cover no-repeat;
+    background: url('images/arte-graficafl-hero2.jpg') center center/cover no-repeat;
     background-attachment: scroll;
     min-height: 100vh;
     display: flex;
@@ -481,7 +481,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
-        background: url('images/arte-graficafl-hero-mobile2.jpg') center center/cover no-repeat;
+        background: url('images/arte-graficafl-hero-mobile1.jpg') center center/cover no-repeat;
     }
 
     .hero-header {
