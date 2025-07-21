@@ -415,6 +415,9 @@ function setupServicePopups() {
     });
 }
 
+// Variável para armazenar posição do scroll
+let scrollPosition = 0;
+
 function openServicePopup(serviceType) {
     const service = servicesData[serviceType];
     const popupOverlay = document.getElementById('service-popup-overlay');
@@ -424,6 +427,9 @@ function openServicePopup(serviceType) {
         console.error('Popup elements not found:', { service: !!service, popupOverlay: !!popupOverlay, popupContent: !!popupContent });
         return;
     }
+    
+    // Salvar posição atual do scroll
+    scrollPosition = window.pageYOffset;
     
     // Gerar HTML do popup
     const popupHTML = `
@@ -468,8 +474,11 @@ function openServicePopup(serviceType) {
     
     popupContent.innerHTML = popupHTML;
     popupOverlay.classList.add('active');
+    
+    // Fixar body na posição atual do scroll
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
     document.body.style.width = '100%';
 }
 
@@ -477,8 +486,15 @@ function closeServicePopup() {
     const popupOverlay = document.getElementById('service-popup-overlay');
     if (popupOverlay) {
         popupOverlay.classList.remove('active');
+        
+        // Restaurar scroll na posição original
         document.body.style.overflow = '';
         document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        
+        // Voltar para a posição salva
+        window.scrollTo(0, scrollPosition);
     }
 }
 
