@@ -254,8 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-// =
-==== SISTEMA DE POPUPS DOS SERVIÇOS =====
+
+// ===== SISTEMA DE POPUPS DOS SERVIÇOS =====
 
 // Dados dos serviços
 const servicesData = {
