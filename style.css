@@ -30,7 +30,7 @@ main {
 
 /* Hero Section - Corporate Style */
 .hero {
-    background: url('images/arte-graficafl-hero-1-100.jpg') center center/cover no-repeat;
+    background: url('images/arte-graficafl-hero.jpg') center center/cover no-repeat;
     background-attachment: scroll;
     min-height: 100vh;
     display: flex;
