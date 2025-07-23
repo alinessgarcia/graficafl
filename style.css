@@ -494,7 +494,7 @@ main {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
-        background: url('images/arte-graficafl-hero-mobile.jpg') center center/cover no-repeat;
+        background: url('images/mobile-hero-1.jpg') center center/cover no-repeat;
     }
 
     .hero-header {
@@ -902,6 +902,7 @@ main {
 @media (max-width: 768px) {
     .services-modern {
         padding: 80px 0;
+        background: url('images/mobile-sessão-2.jpg') center center/cover no-repeat;
     }
 
     .services-title {
