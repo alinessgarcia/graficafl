@@ -584,7 +584,16 @@ function initNavbar() {
     const navbarClose = document.getElementById('navbar-close');
     const navbarLinks = document.querySelectorAll('.navbar-link');
     
-    if (!navbar || !navbarToggle || !navbarMenu) return;
+    console.log('Navbar elements found:', {
+        navbar: !!navbar,
+        navbarToggle: !!navbarToggle,
+        navbarMenu: !!navbarMenu
+    });
+    
+    if (!navbar || !navbarToggle || !navbarMenu) {
+        console.error('Missing navbar elements!');
+        return;
+    }
     
     let lastScrollY = window.scrollY;
     let ticking = false;
@@ -619,15 +628,19 @@ function initNavbar() {
     }
     
     function openMenu() {
+        console.log('Opening menu - adding active class');
         navbarMenu.classList.add('active');
         navbarToggle.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scroll
+        document.body.style.overflow = 'hidden';
+        console.log('Menu classes:', navbarMenu.classList.toString());
     }
     
     function closeMenu() {
+        console.log('Closing menu - removing active class');
         navbarMenu.classList.remove('active');
         navbarToggle.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
+        document.body.style.overflow = '';
+        console.log('Menu classes:', navbarMenu.classList.toString());
     }
     
     // Events
@@ -635,10 +648,15 @@ function initNavbar() {
     
     // Mobile menu toggle
     navbarToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
+        console.log('Navbar toggle clicked!');
+        
         if (navbarMenu.classList.contains('active')) {
+            console.log('Closing menu');
             closeMenu();
         } else {
+            console.log('Opening menu');
             openMenu();
         }
     });

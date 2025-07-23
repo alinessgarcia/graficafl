@@ -806,23 +806,30 @@ main {
 
     /* Mobile: Grid simples - sem roleta russa! */
     .testimonials-carousel {
-        overflow: visible;
+        overflow: hidden;
     }
 
     .testimonials-track {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
         gap: 1.5rem;
-        animation: none;
-        /* Acabou a roleta russa! */
-        width: auto;
+        animation: scroll-testimonials 45s linear infinite; /* Mais devagar no mobile */
+        width: calc(320px * 12 + 1.5rem * 11);
     }
 
     .testimonial-card {
-        min-width: auto;
-        max-width: none;
+        min-width: 320px;
+        max-width: 320px;
         padding: 1.5rem;
-        flex-shrink: initial;
+        flex-shrink: 0;
+    }
+
+    @keyframes scroll-testimonials {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-320px * 6 - 1.5rem * 5));
+        }
     }
 
     .service-card,
