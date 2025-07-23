@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adicionar animações extras
     setupExtraAnimations();
     
+    // Configurar controle do carrossel
+    setupTestimonialsCarousel();
+    
+    // Inicializar navbar
+    initNavbar();
+    
     // Configurar popups dos serviços com delay para garantir que DOM está pronto
     setTimeout(() => {
         setupServicePopups();
@@ -514,4 +520,150 @@ function getServiceIcon(serviceType) {
     };
     
     return icons[serviceType] || icons.additional;
+}
+// ===== CONTROLE DO CARROSSEL DE DEPOIMENTOS =====
+function setupTestimonialsCarousel() {
+    const carousel = document.querySelector('.testimonials-carousel');
+    const track = document.querySelector('.testimonials-track');
+    
+    if (!carousel || !track) return;
+    
+    let isPaused = false;
+    let pauseTimeout = null;
+    
+    // Função para pausar/retomar
+    function togglePause(pause, duration = 0) {
+        // Limpar timeout anterior
+        if (pauseTimeout) {
+            clearTimeout(pauseTimeout);
+            pauseTimeout = null;
+        }
+        
+        if (pause && !isPaused) {
+            track.style.animationPlayState = 'paused';
+            isPaused = true;
+            
+            // Se tem duração, programa para retomar
+            if (duration > 0) {
+                pauseTimeout = setTimeout(() => {
+                    track.style.animationPlayState = 'running';
+                    isPaused = false;
+                }, duration);
+            }
+        } else if (!pause && isPaused) {
+            track.style.animationPlayState = 'running';
+            isPaused = false;
+        }
+    }
+    
+    // Detectar se é mobile
+    function isMobileView() {
+        return window.innerWidth <= 768;
+    }
+    
+    // Só funciona no desktop - mobile usa grid simples
+    if (!isMobileView()) {
+        // Eventos para desktop
+        carousel.addEventListener('mouseenter', () => togglePause(true));
+        carousel.addEventListener('mouseleave', () => togglePause(false));
+        
+        // Hover individual nos cards
+        const cards = document.querySelectorAll('.testimonial-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => togglePause(true));
+            card.addEventListener('mouseleave', () => togglePause(false));
+        });
+    }
+}
+// ====
+= NAVBAR GLASSMORPHISM FUNCTIONALITY =====
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+    const navbarClose = document.getElementById('navbar-close');
+    const navbarLinks = document.querySelectorAll('.navbar-link');
+    
+    if (!navbar || !navbarToggle || !navbarMenu) return;
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    // Show/hide navbar on scroll
+    function updateNavbar() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                navbar.classList.add('visible');
+            } else {
+                // Scrolling down
+                navbar.classList.remove('visible');
+                closeMenu();
+            }
+        } else {
+            // At top
+            navbar.classList.remove('visible');
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }
+    
+    function openMenu() {
+        navbarMenu.classList.add('active');
+        navbarToggle.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+    
+    function closeMenu() {
+        navbarMenu.classList.remove('active');
+        navbarToggle.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+    }
+    
+    // Events
+    window.addEventListener('scroll', requestTick);
+    
+    // Mobile menu toggle
+    navbarToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navbarMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Close button
+    if (navbarClose) {
+        navbarClose.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on links
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && navbarMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navbarMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
 }
