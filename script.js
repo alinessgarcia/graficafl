@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSmoothScroll();
     
     // Adicionar animações extras
+    
+    // Inicializar navbar
+    initNavbar();
     setupExtraAnimations();
     
     // Configurar popups dos serviços com delay para garantir que DOM está pronto
@@ -514,4 +517,69 @@ function getServiceIcon(serviceType) {
     };
     
     return icons[serviceType] || icons.additional;
+}
+// ====
+= NAVBAR FUNCTIONALITY =====
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+    const navbarLinks = document.querySelectorAll('.navbar-link');
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    // Show/hide navbar on scroll
+    function updateNavbar() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                navbar.classList.add('visible');
+            } else {
+                // Scrolling down
+                navbar.classList.remove('visible');
+                navbarMenu.classList.remove('active');
+                navbarToggle.classList.remove('active');
+            }
+        } else {
+            // At top
+            navbar.classList.remove('visible');
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    
+    // Mobile menu toggle
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+        navbarToggle.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on links
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+        }
+    });
 }
