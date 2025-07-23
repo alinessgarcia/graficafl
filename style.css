@@ -30,7 +30,7 @@ main {
 
 /* Hero Section - Corporate Style */
 .hero {
-    background: url('images/arte-graficafl-hero3.jpg') center center/cover no-repeat;
+    background: url('images/arte-graficafl-hero-1-100.jpg') center center/cover no-repeat;
     background-attachment: scroll;
     min-height: 100vh;
     display: flex;
@@ -334,7 +334,7 @@ main {
 
 /* Footer - Corporate */
 .footer {
-    background: linear-gradient(135deg, #ae0cdd 0%, #86a1eb 100%);
+    background: linear-gradient(135deg, #01848d 0%, #6200a5 100%);
     color: white;
     padding: 60px 0 30px;
     position: relative;
@@ -632,7 +632,7 @@ main {
 /* Services Section - Modern Design */
 .services-modern {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    background: url('images/desktop-meio-101.jpg') center center/cover no-repeat;
     position: relative;
     overflow: hidden;
 }
@@ -659,7 +659,7 @@ main {
 .services-title {
     font-size: 3rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #ffffff;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
     position: relative;
@@ -668,14 +668,14 @@ main {
 .services-divider {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    background: linear-gradient(90deg, #14e6ff, #9000ff);
     margin: 0 auto 1.5rem;
     border-radius: 2px;
 }
 
 .services-subtitle {
     font-size: 1.25rem;
-    color: #64748b;
+    color: #ffffff;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -1207,7 +1207,7 @@ main {
         align-items: flex-start;
         padding-top: 2rem;
     }
-    
+
     .popup-container {
         width: 100%;
         max-width: 420px;
@@ -1261,7 +1261,7 @@ main {
         padding: 0.25rem;
         padding-top: 1rem;
     }
-    
+
     .popup-container {
         max-height: calc(100vh - 2rem);
     }
