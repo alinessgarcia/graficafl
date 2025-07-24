@@ -525,8 +525,7 @@ function getServiceIcon(serviceType) {
     
     return icons[serviceType] || icons.additional;
 }
-// ====
-= NAVBAR FUNCTIONALITY =====
+// ===== NAVBAR FUNCTIONALITY =====
 function initNavbar() {
     const navbar = document.getElementById('navbar');
     const navbarToggle = document.getElementById('navbar-toggle');
