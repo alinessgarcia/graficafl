@@ -1,0 +1,105 @@
+Documento temporário criado em 24/07/2025
+
+Este é um arquivo de texto temporário que pode ser usado para:
+- Anotações rápidas
+- Testes
+- Rascunhos
+- Qualquer conteúdo temporário
+
+Você pode editar este arquivo conforme necessário.
+
+Documento de Especificações Técnicas para Correção da Navbar Mobile – Projeto Gráfica FL
+Contexto
+O menu de navegação no modo mobile apresenta problemas visuais e funcionais:
+
+O botão de fechar ("X") aparece duplicado ou distorcido visualmente (imagem anexa).
+
+Os links do menu mobile ficam quase invisíveis ou cortados, prejudicando a experiência do usuário.
+
+Fundo com alto efeito de blur e gradiente interferem no contraste do texto.
+
+A estrutura CSS atual está correta, porém o z-index entre .navbar, .navbar-menu e .navbar-close pode precisar de ajustes para garantir hierarquia visual adequada.
+
+Diagnóstico e Pontos Críticos Identificados
+1. Botão fechar "X" (.navbar-close)
+Implementado atualmente com caractere HTML &times; que pode renderizar de forma inconsistente em alguns navegadores.
+
+Problema visual provável causado por tamanho excessivo (font-size: 2.5rem) e ausência de linha explícita para o botão.
+
+Recomenda-se substituir por um ícone SVG simples, garantindo renderização uniforme e fácil controle de estilo.
+
+2. Estrutura e hierarquia de camadas
+.navbar tem z-index: 999.
+
+.navbar-menu não possui z-index explícito, o que pode gerar conflito com a navbar.
+
+.navbar-close tem z-index: 9998 que é alto o suficiente para ficar acima do menu.
+
+Recomendação: adicionar z-index: 1000 no .navbar-menu para garantir que o menu fique acima da navbar e abaixo do botão fechar.
+
+3. Contraste dos links
+Cor atual dos links (color: #ffffff) sobre fundo gradual com blur e opacidade pode criar baixo contraste.
+
+Recomenda-se reforçar com text-shadow escuro ou diminuir um pouco a opacidade do fundo dos links.
+
+4. Animação e interação
+Toggle via JS está correto, controlando corretamente as classes .active em .navbar-menu e .navbar-toggle.
+
+Scroll do body bloqueado enquanto o menu está aberto está implementado corretamente.
+
+Clique fora do menu fecha-o corretamente.
+
+Implementações Recomendadas
+1. Substituir botão fechar .navbar-close no HTML:
+xml
+<button class="navbar-close" id="navbar-close" aria-label="Fechar menu">
+  <svg width="24" height="24" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</button>
+2. Adicionar/Corrigir CSS para .navbar-close e .navbar-menu:
+css
+.navbar-close {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0;
+  z-index: 9998;
+  width: 32px;
+  height: 32px;
+}
+
+.navbar-close svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .navbar-close {
+    display: block;
+  }
+
+  .navbar-menu {
+    z-index: 1000; /* Garante sobreposição correta */
+  }
+
+  .navbar-link {
+    color: #f0f0f0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(255,255,255,0.12);
+  }
+}
+3. Garantir que o JavaScript use toggle e remova as classes para abrir/fechar corretamente (conforme já implementado).
+Resumo
+Trocar botão fechar HTML pelo SVG para evitar duplicidade na renderização.
+
+Ajustar z-index do menu para ficar acima da navbar.
+
+Melhorar contraste dos links no menu mobile para garantir legibilidade.
+
+Validar no ambiente mobile para uso real.

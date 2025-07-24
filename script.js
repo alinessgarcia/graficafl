@@ -167,17 +167,7 @@ function setupExtraAnimations() {
     });
 }
 
-// Função para adicionar efeito parallax suave no hero
-window.addEventListener('scroll', function () {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
 
-    if (hero && heroContent) {
-        const rate = scrolled * -0.5;
-        heroContent.style.transform = `translateY(${rate}px)`;
-    }
-});
 
 // Função para adicionar efeito de fade no scroll
 window.addEventListener('scroll', function () {
@@ -617,12 +607,7 @@ function initNavbar() {
     navbarToggle.addEventListener('click', () => {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
-
-        if (navbarMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        // Removido o bloqueio de scroll - agora o scroll continua funcionando
     });
 
     // Close button
@@ -631,7 +616,7 @@ function initNavbar() {
         navbarClose.addEventListener('click', () => {
             navbarMenu.classList.remove('active');
             navbarToggle.classList.remove('active');
-            document.body.style.overflow = '';
+            // Removido o reset de overflow - scroll sempre livre
         });
     }
 
@@ -640,6 +625,7 @@ function initNavbar() {
         link.addEventListener('click', () => {
             navbarMenu.classList.remove('active');
             navbarToggle.classList.remove('active');
+            // Scroll permanece livre mesmo ao fechar via links
         });
     });
 
