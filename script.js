@@ -372,11 +372,18 @@ function setupServicePopups() {
         popupContent: !!popupContent
     });
     
+    if (!popupOverlay || !popupContent) {
+        console.error('Popup elements missing!');
+        return;
+    }
+    
     // Event listeners para botões "Saiba Mais"
     serviceButtons.forEach((button, index) => {
+        console.log('Adding listener to button', index, button);
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('Button clicked!', index);
             
             const serviceCard = this.closest('.service-card-modern');
             if (!serviceCard) {
