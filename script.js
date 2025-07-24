@@ -17,17 +17,63 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adicionar efeitos de scroll suave
     setupSmoothScroll();
 
-    // Adicionar animações extras
-
-    // Inicializar navbar
+    // Inicializar navbar e animações extras
     initNavbar();
     setupExtraAnimations();
 
-    // Configurar popups dos serviços com delay para garantir que DOM está pronto
+    // Função para inicializar o carrossel dos clientes
+    const initClientsCarousel = () => {
+        const swiper = new Swiper('.clients-carousel', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 24,
+            centeredSlides: true,
+            
+            // Autoplay automático
+            autoplay: {
+                delay: 4000, // 4 segundos entre slides
+                disableOnInteraction: false, // Continua mesmo após interação
+                pauseOnMouseEnter: true, // Pausa quando mouse passa por cima
+            },
+            
+            // Velocidade suave
+            speed: 1000, // 1 segundo para transição
+            
+            // Efeito suave
+            effect: 'slide',
+            
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            
+            // Remover navegação manual para focar no automático
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+            
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    };
+
+    // Garantir que o DOM esteja pronto antes de iniciar popups e carrossel
     setTimeout(() => {
         setupServicePopups();
+        initClientsCarousel(); // ✅ Chama direto aqui
     }, 100);
 });
+
 
 // Função para mostrar o banner de cookies
 function showCookieBanner() {
