@@ -646,18 +646,16 @@ function initNavbar() {
     // Events
     window.addEventListener('scroll', requestTick);
     
-    // Mobile menu toggle
-    navbarToggle.addEventListener('click', (e) => {
+    // Mobile menu toggle - SIMPLIFICADO
+    navbarToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        console.log('Navbar toggle clicked!');
+        navbarMenu.classList.toggle('active');
+        navbarToggle.classList.toggle('active');
         
         if (navbarMenu.classList.contains('active')) {
-            console.log('Closing menu');
-            closeMenu();
+            document.body.style.overflow = 'hidden';
         } else {
-            console.log('Opening menu');
-            openMenu();
+            document.body.style.overflow = '';
         }
     });
     
