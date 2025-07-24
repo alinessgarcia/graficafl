@@ -565,7 +565,23 @@ function initNavbar() {
     navbarToggle.addEventListener('click', () => {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
+        
+        if (navbarMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
+    
+    // Close button
+    const navbarClose = document.getElementById('navbar-close');
+    if (navbarClose) {
+        navbarClose.addEventListener('click', () => {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
     
     // Close mobile menu when clicking on links
     navbarLinks.forEach(link => {

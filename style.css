@@ -69,6 +69,18 @@ main {
     gap: 2rem;
 }
 
+.navbar-close {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
 .navbar-link {
     color: #ffffff;
     text-decoration: none;
@@ -122,18 +134,23 @@ main {
 @media (max-width: 768px) {
     .navbar-menu {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: 0;
         right: 0;
+        bottom: 0;
         background: rgba(174, 12, 221, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 2rem 0;
-        gap: 1rem;
-        transform: translateY(-100%);
+        justify-content: center;
+        gap: 2rem;
+        transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
+    }
+
+    .navbar-close {
+        display: block;
     }
 
     .navbar-menu.active {
