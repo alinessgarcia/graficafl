@@ -1,5 +1,5 @@
 // Inicializar AOS (Animate On Scroll)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
@@ -7,22 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 50,
         mirror: false
     });
-    
+
     // Mostrar banner de cookies
     showCookieBanner();
-    
+
     // Configurar botão de aceitar cookies
     setupCookieButton();
-    
+
     // Adicionar efeitos de scroll suave
     setupSmoothScroll();
-    
+
     // Adicionar animações extras
-    
+
     // Inicializar navbar
     initNavbar();
     setupExtraAnimations();
-    
+
     // Configurar popups dos serviços com delay para garantir que DOM está pronto
     setTimeout(() => {
         setupServicePopups();
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function showCookieBanner() {
     const cookieBanner = document.getElementById('cookie-banner');
     const cookieAccepted = localStorage.getItem('cookieAccepted');
-    
+
     if (!cookieAccepted && cookieBanner) {
         setTimeout(() => {
             cookieBanner.classList.add('show');
@@ -45,12 +45,12 @@ function showCookieBanner() {
 function setupCookieButton() {
     const cookieButton = document.getElementById('cookie-accept');
     const cookieBanner = document.getElementById('cookie-banner');
-    
+
     if (cookieButton && cookieBanner) {
-        cookieButton.addEventListener('click', function() {
+        cookieButton.addEventListener('click', function () {
             localStorage.setItem('cookieAccepted', 'true');
             cookieBanner.classList.remove('show');
-            
+
             setTimeout(() => {
                 cookieBanner.style.display = 'none';
             }, 300);
@@ -62,14 +62,14 @@ function setupCookieButton() {
 function setupSmoothScroll() {
     // Adicionar comportamento de scroll suave para links internos
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
@@ -84,49 +84,49 @@ function setupSmoothScroll() {
 function setupExtraAnimations() {
     // Animação do botão WhatsApp flutuante
     const whatsappFloat = document.getElementById('whatsapp-float');
-    
+
     // Adicionar efeito de hover personalizado
-    whatsappFloat.addEventListener('mouseenter', function() {
+    whatsappFloat.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.1) rotate(10deg)';
     });
-    
-    whatsappFloat.addEventListener('mouseleave', function() {
+
+    whatsappFloat.addEventListener('mouseleave', function () {
         this.style.transform = 'scale(1) rotate(0deg)';
     });
-    
+
     // Animação dos cards de serviços
     const serviceCards = document.querySelectorAll('.service-card');
-    
+
     serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-10px) scale(1.02)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
+
     // Animação dos cards de depoimentos
     const testimonialCards = document.querySelectorAll('.testimonial-card');
-    
+
     testimonialCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-5px) scale(1.02)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
 }
 
 // Função para adicionar efeito parallax suave no hero
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero-content');
-    
+
     if (hero && heroContent) {
         const rate = scrolled * -0.5;
         heroContent.style.transform = `translateY(${rate}px)`;
@@ -134,15 +134,15 @@ window.addEventListener('scroll', function() {
 });
 
 // Função para adicionar efeito de fade no scroll
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrolled = window.pageYOffset;
     const windowHeight = window.innerHeight;
     const elements = document.querySelectorAll('.service-card, .testimonial-card');
-    
+
     elements.forEach(element => {
         const elementTop = element.offsetTop;
         const elementHeight = element.offsetHeight;
-        
+
         if (scrolled + windowHeight > elementTop + elementHeight / 4) {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
@@ -151,14 +151,14 @@ window.addEventListener('scroll', function() {
 });
 
 // Adicionar loading state para imagens
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('img');
-    
+
     images.forEach(img => {
-        img.addEventListener('load', function() {
+        img.addEventListener('load', function () {
             this.style.opacity = '1';
         });
-        
+
         // Se a imagem já estiver carregada
         if (img.complete) {
             img.style.opacity = '1';
@@ -189,7 +189,7 @@ window.addEventListener('resize', optimizeForMobile);
 function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = '';
-    
+
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
@@ -197,60 +197,60 @@ function typeWriter(element, text, speed = 50) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
 // Ativar efeito de typing após carregamento
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const subtitle = document.querySelector('.hero-subtitle');
     const originalText = subtitle.textContent;
-    
+
     setTimeout(() => {
         typeWriter(subtitle, originalText, 30);
     }, 1500);
 });
 
 // Funcionalidade do logo - voltar ao topo e sticky header
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const logoLink = document.querySelector('.logo-link');
     const heroHeader = document.querySelector('.hero-header');
-    
+
     if (logoLink) {
-        logoLink.addEventListener('click', function(e) {
+        logoLink.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Scroll suave para o topo
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-            
+
             // Efeito visual no logo - afundar mais
             this.style.transform = 'translateY(5px)';
-            
+
             setTimeout(() => {
                 this.style.transform = 'translateY(0)';
             }, 150);
         });
-        
+
         // Efeito hover adicional - apenas visual feedback
-        logoLink.addEventListener('mouseenter', function() {
+        logoLink.addEventListener('mouseenter', function () {
             const logo = this.querySelector('.logo');
             logo.style.opacity = '0.8';
         });
-        
-        logoLink.addEventListener('mouseleave', function() {
+
+        logoLink.addEventListener('mouseleave', function () {
             const logo = this.querySelector('.logo');
             logo.style.opacity = '1';
         });
     }
-    
+
     // Sticky header functionality
     if (heroHeader) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.scrollY;
-            
+
             if (scrolled > 100) {
                 heroHeader.classList.add('scrolled');
             } else {
@@ -364,61 +364,61 @@ function setupServicePopups() {
     const popupOverlay = document.getElementById('service-popup-overlay');
     const popupClose = document.getElementById('popup-close');
     const popupContent = document.getElementById('popup-content');
-    
+
     console.log('Setting up popups:', {
         serviceButtons: serviceButtons.length,
         popupOverlay: !!popupOverlay,
         popupClose: !!popupClose,
         popupContent: !!popupContent
     });
-    
+
     if (!popupOverlay || !popupContent) {
         console.error('Popup elements missing!');
         return;
     }
-    
+
     // Event listeners para botões "Saiba Mais"
     serviceButtons.forEach((button, index) => {
         console.log('Adding listener to button', index, button);
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Button clicked!', index);
-            
+
             const serviceCard = this.closest('.service-card-modern');
             if (!serviceCard) {
                 console.error('Service card not found for button', index);
                 return;
             }
-            
+
             const serviceType = serviceCard.getAttribute('data-service');
             console.log('Opening popup for service:', serviceType);
             openServicePopup(serviceType);
         });
     });
-    
+
     // Event listener para CTA button
     if (ctaButton) {
-        ctaButton.addEventListener('click', function() {
+        ctaButton.addEventListener('click', function () {
             window.open('https://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank');
         });
     }
-    
+
     // Fechar popup
     if (popupClose) {
         popupClose.addEventListener('click', closeServicePopup);
     }
-    
+
     if (popupOverlay) {
-        popupOverlay.addEventListener('click', function(e) {
+        popupOverlay.addEventListener('click', function (e) {
             if (e.target === popupOverlay) {
                 closeServicePopup();
             }
         });
     }
-    
+
     // Fechar com ESC
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && popupOverlay && popupOverlay.classList.contains('active')) {
             closeServicePopup();
         }
@@ -432,15 +432,15 @@ function openServicePopup(serviceType) {
     const service = servicesData[serviceType];
     const popupOverlay = document.getElementById('service-popup-overlay');
     const popupContent = document.getElementById('popup-content');
-    
+
     if (!service || !popupOverlay || !popupContent) {
         console.error('Popup elements not found:', { service: !!service, popupOverlay: !!popupOverlay, popupContent: !!popupContent });
         return;
     }
-    
+
     // Salvar posição atual do scroll
     scrollPosition = window.pageYOffset;
-    
+
     // Gerar HTML do popup no estilo Lovable
     const popupHTML = `
         <div class="popup-header ${service.icon}">
@@ -486,10 +486,10 @@ function openServicePopup(serviceType) {
             </div>
         </div>
     `;
-    
+
     popupContent.innerHTML = popupHTML;
     popupOverlay.classList.add('active');
-    
+
     // Fixar body na posição atual do scroll
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
@@ -501,13 +501,13 @@ function closeServicePopup() {
     const popupOverlay = document.getElementById('service-popup-overlay');
     if (popupOverlay) {
         popupOverlay.classList.remove('active');
-        
+
         // Restaurar scroll na posição original
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
-        
+
         // Voltar para a posição salva
         window.scrollTo(0, scrollPosition);
     }
@@ -522,7 +522,7 @@ function getServiceIcon(serviceType) {
         print: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 6,2 18,2 18,9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg>',
         additional: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>'
     };
-    
+
     return icons[serviceType] || icons.additional;
 }
 // ===== NAVBAR FUNCTIONALITY =====
@@ -531,14 +531,14 @@ function initNavbar() {
     const navbarToggle = document.getElementById('navbar-toggle');
     const navbarMenu = document.querySelector('.navbar-menu');
     const navbarLinks = document.querySelectorAll('.navbar-link');
-    
+
     let lastScrollY = window.scrollY;
     let ticking = false;
-    
+
     // Show/hide navbar on scroll
     function updateNavbar() {
         const currentScrollY = window.scrollY;
-        
+
         if (currentScrollY > 100) {
             if (currentScrollY < lastScrollY) {
                 // Scrolling up
@@ -553,32 +553,32 @@ function initNavbar() {
             // At top
             navbar.classList.remove('visible');
         }
-        
+
         lastScrollY = currentScrollY;
         ticking = false;
     }
-    
+
     function requestTick() {
         if (!ticking) {
             requestAnimationFrame(updateNavbar);
             ticking = true;
         }
     }
-    
+
     window.addEventListener('scroll', requestTick);
-    
+
     // Mobile menu toggle
     navbarToggle.addEventListener('click', () => {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
-        
+
         if (navbarMenu.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
     });
-    
+
     // Close button
     const navbarClose = document.getElementById('navbar-close');
     if (navbarClose) {
@@ -588,7 +588,7 @@ function initNavbar() {
             document.body.style.overflow = '';
         });
     }
-    
+
     // Close mobile menu when clicking on links
     navbarLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -596,7 +596,7 @@ function initNavbar() {
             navbarToggle.classList.remove('active');
         });
     });
-    
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target)) {
