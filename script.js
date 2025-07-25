@@ -436,7 +436,7 @@ function setupServicePopups() {
     // Event listener para CTA button
     if (ctaButton) {
         ctaButton.addEventListener('click', function () {
-            window.open('https://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank');
+            window.open('https://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank', 'noopener,noreferrer');
         });
     }
 
