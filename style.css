@@ -1035,7 +1035,7 @@ main {
 @media (max-width: 768px) {
     .services-modern {
         padding: 80px 0;
-        background: url('images/mobile-sessão-2.jpg') center center/cover no-repeat;
+        background: url('images/mobile-sessão2.jpg') center center/cover no-repeat;
     }
 
     .services-title {
