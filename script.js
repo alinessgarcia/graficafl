@@ -21,59 +21,108 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavbar();
     setupExtraAnimations();
 
-    // Função para inicializar o carrossel dos clientes
+    // ===== CARROSSEL DE CLIENTES MANUAL - SEM AUTOPLAY =====
     const initClientsCarousel = () => {
+        // Verificar se o elemento existe
+        const carouselElement = document.querySelector('.clients-carousel');
+        if (!carouselElement) {
+            console.log('Elemento do carrossel não encontrado');
+            return;
+        }
+
+        console.log('Inicializando carrossel manual de clientes...');
+
         const swiper = new Swiper('.clients-carousel', {
+            // Configurações básicas - MANUAL APENAS
             loop: true,
             slidesPerView: 1,
-            spaceBetween: 24,
+            spaceBetween: 0, // Zero espaçamento para ocupar toda a tela
             centeredSlides: true,
-            
-            // Autoplay automático
-            autoplay: {
-                delay: 4000, // 4 segundos entre slides
-                disableOnInteraction: false, // Continua mesmo após interação
-                pauseOnMouseEnter: true, // Pausa quando mouse passa por cima
-            },
-            
-            // Velocidade suave
-            speed: 1000, // 1 segundo para transição
-            
-            // Efeito suave
+
+            // Direção horizontal
+            direction: 'horizontal',
+
+            // SEM AUTOPLAY - REMOVIDO COMPLETAMENTE
+            // autoplay: false, // Explicitamente desabilitado
+
+            // Velocidade da transição
+            speed: 800,
+
+            // Efeito de slide
             effect: 'slide',
-            
+
+            // Navegação com setas OBRIGATÓRIA
+            navigation: {
+                nextEl: '.carousel-btn-next',
+                prevEl: '.carousel-btn-prev',
+            },
+
+            // Paginação
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                dynamicBullets: true,
+                dynamicBullets: false,
             },
-            
-            // Remover navegação manual para focar no automático
-            // navigation: {
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // },
-            
+
+            // Configurações responsivas - SEMPRE 1 SLIDE COMPLETO
             breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                },
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                },
                 768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
                 },
                 1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                },
+                1200: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    centeredSlides: true,
                 },
             },
+
+            // Callbacks para debug
+            on: {
+                init: function () {
+                    console.log('✅ Carrossel MANUAL inicializado!');
+                    console.log('Total de slides:', this.slides.length);
+                    console.log('Autoplay:', this.autoplay ? 'ATIVO' : 'DESABILITADO');
+                },
+                slideChange: function () {
+                    console.log('📱 Slide alterado manualmente para:', this.activeIndex);
+                }
+            }
         });
+
+        // GARANTIR que não há autoplay
+        if (swiper.autoplay) {
+            swiper.autoplay.stop();
+            swiper.autoplay = null;
+        }
+
+        return swiper;
     };
 
-    // Garantir que o DOM esteja pronto antes de iniciar popups e carrossel
+    // Inicializar após DOM estar completamente pronto
     setTimeout(() => {
         setupServicePopups();
-        initClientsCarousel(); // ✅ Chama direto aqui
+        initClientsCarousel();
     }, 100);
 });
 
+// ===== RESTANTE DAS FUNÇÕES (mantidas iguais) =====
 
 // Função para mostrar o banner de cookies
 function showCookieBanner() {
@@ -106,7 +155,6 @@ function setupCookieButton() {
 
 // Função para configurar scroll suave
 function setupSmoothScroll() {
-    // Adicionar comportamento de scroll suave para links internos
     const links = document.querySelectorAll('a[href^="#"]');
 
     links.forEach(link => {
@@ -128,17 +176,17 @@ function setupSmoothScroll() {
 
 // Função para configurar animações extras
 function setupExtraAnimations() {
-    // Animação do botão WhatsApp flutuante
     const whatsappFloat = document.getElementById('whatsapp-float');
 
-    // Adicionar efeito de hover personalizado
-    whatsappFloat.addEventListener('mouseenter', function () {
-        this.style.transform = 'scale(1.1) rotate(10deg)';
-    });
+    if (whatsappFloat) {
+        whatsappFloat.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.1) rotate(10deg)';
+        });
 
-    whatsappFloat.addEventListener('mouseleave', function () {
-        this.style.transform = 'scale(1) rotate(0deg)';
-    });
+        whatsappFloat.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    }
 
     // Animação dos cards de serviços
     const serviceCards = document.querySelectorAll('.service-card');
@@ -167,8 +215,6 @@ function setupExtraAnimations() {
     });
 }
 
-
-
 // Função para adicionar efeito de fade no scroll
 window.addEventListener('scroll', function () {
     const scrolled = window.pageYOffset;
@@ -195,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.opacity = '1';
         });
 
-        // Se a imagem já estiver carregada
         if (img.complete) {
             img.style.opacity = '1';
         }
@@ -205,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Função para otimizar performance em dispositivos móveis
 function optimizeForMobile() {
     if (window.innerWidth <= 768) {
-        // Reduzir animações em dispositivos móveis
         const style = document.createElement('style');
         style.textContent = `
             * {
@@ -217,11 +261,10 @@ function optimizeForMobile() {
     }
 }
 
-// Executar otimização no carregamento e redimensionamento
 window.addEventListener('load', optimizeForMobile);
 window.addEventListener('resize', optimizeForMobile);
 
-// Adicionar efeito de typing no subtítulo (opcional)
+// Adicionar efeito de typing no subtítulo
 function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = '';
@@ -237,17 +280,18 @@ function typeWriter(element, text, speed = 50) {
     type();
 }
 
-// Ativar efeito de typing após carregamento
 window.addEventListener('load', function () {
     const subtitle = document.querySelector('.hero-subtitle');
-    const originalText = subtitle.textContent;
+    if (subtitle) {
+        const originalText = subtitle.textContent;
 
-    setTimeout(() => {
-        typeWriter(subtitle, originalText, 30);
-    }, 1500);
+        setTimeout(() => {
+            typeWriter(subtitle, originalText, 30);
+        }, 1500);
+    }
 });
 
-// Funcionalidade do logo - voltar ao topo e sticky header
+// Funcionalidade do logo
 document.addEventListener('DOMContentLoaded', function () {
     const logoLink = document.querySelector('.logo-link');
     const heroHeader = document.querySelector('.hero-header');
@@ -256,13 +300,11 @@ document.addEventListener('DOMContentLoaded', function () {
         logoLink.addEventListener('click', function (e) {
             e.preventDefault();
 
-            // Scroll suave para o topo
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
 
-            // Efeito visual no logo - afundar mais
             this.style.transform = 'translateY(5px)';
 
             setTimeout(() => {
@@ -270,19 +312,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 150);
         });
 
-        // Efeito hover adicional - apenas visual feedback
         logoLink.addEventListener('mouseenter', function () {
             const logo = this.querySelector('.logo');
-            logo.style.opacity = '0.8';
+            if (logo) logo.style.opacity = '0.8';
         });
 
         logoLink.addEventListener('mouseleave', function () {
             const logo = this.querySelector('.logo');
-            logo.style.opacity = '1';
+            if (logo) logo.style.opacity = '1';
         });
     }
 
-    // Sticky header functionality
     if (heroHeader) {
         window.addEventListener('scroll', function () {
             const scrolled = window.scrollY;
@@ -298,7 +338,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ===== SISTEMA DE POPUPS DOS SERVIÇOS =====
 
-// Dados dos serviços
 const servicesData = {
     cpf: {
         title: 'Consultas CPF',
@@ -392,8 +431,6 @@ const servicesData = {
     }
 };
 
-// Setup dos popups será chamado no DOMContentLoaded principal
-
 function setupServicePopups() {
     const serviceButtons = document.querySelectorAll('.service-btn-primary');
     const ctaButton = document.querySelector('.cta-button');
@@ -401,25 +438,15 @@ function setupServicePopups() {
     const popupClose = document.getElementById('popup-close');
     const popupContent = document.getElementById('popup-content');
 
-    console.log('Setting up popups:', {
-        serviceButtons: serviceButtons.length,
-        popupOverlay: !!popupOverlay,
-        popupClose: !!popupClose,
-        popupContent: !!popupContent
-    });
-
     if (!popupOverlay || !popupContent) {
         console.error('Popup elements missing!');
         return;
     }
 
-    // Event listeners para botões "Saiba Mais"
     serviceButtons.forEach((button, index) => {
-        console.log('Adding listener to button', index, button);
         button.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Button clicked!', index);
 
             const serviceCard = this.closest('.service-card-modern');
             if (!serviceCard) {
@@ -428,19 +455,16 @@ function setupServicePopups() {
             }
 
             const serviceType = serviceCard.getAttribute('data-service');
-            console.log('Opening popup for service:', serviceType);
             openServicePopup(serviceType);
         });
     });
 
-    // Event listener para CTA button
     if (ctaButton) {
         ctaButton.addEventListener('click', function () {
             window.open('https://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank', 'noopener,noreferrer');
         });
     }
 
-    // Fechar popup
     if (popupClose) {
         popupClose.addEventListener('click', closeServicePopup);
     }
@@ -453,7 +477,6 @@ function setupServicePopups() {
         });
     }
 
-    // Fechar com ESC
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && popupOverlay && popupOverlay.classList.contains('active')) {
             closeServicePopup();
@@ -461,7 +484,6 @@ function setupServicePopups() {
     });
 }
 
-// Variável para armazenar posição do scroll
 let scrollPosition = 0;
 
 function openServicePopup(serviceType) {
@@ -470,14 +492,12 @@ function openServicePopup(serviceType) {
     const popupContent = document.getElementById('popup-content');
 
     if (!service || !popupOverlay || !popupContent) {
-        console.error('Popup elements not found:', { service: !!service, popupOverlay: !!popupOverlay, popupContent: !!popupContent });
+        console.error('Popup elements not found');
         return;
     }
 
-    // Salvar posição atual do scroll
     scrollPosition = window.pageYOffset;
 
-    // Gerar HTML do popup no estilo Lovable
     const popupHTML = `
         <div class="popup-header ${service.icon}">
             <div class="popup-header-bg-effect"></div>
@@ -526,7 +546,6 @@ function openServicePopup(serviceType) {
     popupContent.innerHTML = popupHTML;
     popupOverlay.classList.add('active');
 
-    // Fixar body na posição atual do scroll
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollPosition}px`;
@@ -538,13 +557,11 @@ function closeServicePopup() {
     if (popupOverlay) {
         popupOverlay.classList.remove('active');
 
-        // Restaurar scroll na posição original
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
 
-        // Voltar para a posição salva
         window.scrollTo(0, scrollPosition);
     }
 }
@@ -561,6 +578,7 @@ function getServiceIcon(serviceType) {
 
     return icons[serviceType] || icons.additional;
 }
+
 // ===== NAVBAR FUNCTIONALITY =====
 function initNavbar() {
     const navbar = document.getElementById('navbar');
@@ -571,22 +589,18 @@ function initNavbar() {
     let lastScrollY = window.scrollY;
     let ticking = false;
 
-    // Show/hide navbar on scroll
     function updateNavbar() {
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > 100) {
             if (currentScrollY < lastScrollY) {
-                // Scrolling up
                 navbar.classList.add('visible');
             } else {
-                // Scrolling down
                 navbar.classList.remove('visible');
                 navbarMenu.classList.remove('active');
                 navbarToggle.classList.remove('active');
             }
         } else {
-            // At top
             navbar.classList.remove('visible');
         }
 
@@ -603,35 +617,30 @@ function initNavbar() {
 
     window.addEventListener('scroll', requestTick);
 
-    // Mobile menu toggle
-    navbarToggle.addEventListener('click', () => {
-        navbarMenu.classList.toggle('active');
-        navbarToggle.classList.toggle('active');
-        // Removido o bloqueio de scroll - agora o scroll continua funcionando
-    });
+    if (navbarToggle) {
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            navbarToggle.classList.toggle('active');
+        });
+    }
 
-    // Close button
     const navbarClose = document.getElementById('navbar-close');
     if (navbarClose) {
         navbarClose.addEventListener('click', () => {
             navbarMenu.classList.remove('active');
             navbarToggle.classList.remove('active');
-            // Removido o reset de overflow - scroll sempre livre
         });
     }
 
-    // Close mobile menu when clicking on links
     navbarLinks.forEach(link => {
         link.addEventListener('click', () => {
             navbarMenu.classList.remove('active');
             navbarToggle.classList.remove('active');
-            // Scroll permanece livre mesmo ao fechar via links
         });
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target)) {
+        if (navbar && !navbar.contains(e.target)) {
             navbarMenu.classList.remove('active');
             navbarToggle.classList.remove('active');
         }
