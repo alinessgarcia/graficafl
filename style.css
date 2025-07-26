@@ -1347,13 +1347,13 @@ main {
 /* ==
 === SEÇÃO DE CLIENTES - LIMPA E DEFINITIVA ===== */
 .clients-section {
-    padding: 100px 0 !important;
-    background: url('images/desktop-clientes-depoimentos.jpg') center center/cover no-repeat !important;
+    padding: 80px 0 !important;
+    background: url('images/desktop-clientes.png') center 20%/cover no-repeat !important;
     background-size: cover !important;
     position: relative !important;
     min-height: 100vh !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     justify-content: center !important;
 }
 
@@ -1366,7 +1366,8 @@ main {
 
 .clients-section .section-title {
     color: #4f008b !important;
-    margin-bottom: 4rem !important;
+    margin-bottom: 3rem !important;
+    margin-top: 0 !important;
     text-align: center !important;
     font-size: 2.75rem !important;
     font-weight: 700 !important;
@@ -1494,4 +1495,8 @@ html {
 #clientes {
     scroll-margin-top: 70px;
     /* Margem específica para a seção clientes */
+}/*
+ Ajuste da barra decorativa para desktop */
+.clients-section .section-title::after {
+    bottom: -12px !important;
 }
