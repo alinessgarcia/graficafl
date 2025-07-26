@@ -21,104 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavbar();
     setupExtraAnimations();
 
-    // ===== CARROSSEL DE CLIENTES MANUAL - SEM AUTOPLAY =====
-    const initClientsCarousel = () => {
-        // Verificar se o elemento existe
-        const carouselElement = document.querySelector('.clients-carousel');
-        if (!carouselElement) {
-            console.log('Elemento do carrossel não encontrado');
-            return;
-        }
-
-        console.log('Inicializando carrossel manual de clientes...');
-
-        const swiper = new Swiper('.clients-carousel', {
-            // Configurações básicas - MANUAL APENAS
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0, // Zero espaçamento para ocupar toda a tela
-            centeredSlides: true,
-
-            // Direção horizontal
-            direction: 'horizontal',
-
-            // SEM AUTOPLAY - REMOVIDO COMPLETAMENTE
-            // autoplay: false, // Explicitamente desabilitado
-
-            // Velocidade da transição
-            speed: 800,
-
-            // Efeito de slide
-            effect: 'slide',
-
-            // Navegação com setas OBRIGATÓRIA
-            navigation: {
-                nextEl: '.carousel-btn-next',
-                prevEl: '.carousel-btn-prev',
-            },
-
-            // Paginação
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: false,
-            },
-
-            // Configurações responsivas - SEMPRE 1 SLIDE COMPLETO
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                },
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                },
-                768: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                },
-                1024: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                },
-                1200: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                },
-            },
-
-            // Callbacks para debug
-            on: {
-                init: function () {
-                    console.log('✅ Carrossel MANUAL inicializado!');
-                    console.log('Total de slides:', this.slides.length);
-                    console.log('Autoplay:', this.autoplay ? 'ATIVO' : 'DESABILITADO');
-                },
-                slideChange: function () {
-                    console.log('📱 Slide alterado manualmente para:', this.activeIndex);
-                }
-            }
-        });
-
-        // GARANTIR que não há autoplay
-        if (swiper.autoplay) {
-            swiper.autoplay.stop();
-            swiper.autoplay = null;
-        }
-
-        return swiper;
-    };
-
     // Inicializar após DOM estar completamente pronto
     setTimeout(() => {
         setupServicePopups();
-        initClientsCarousel();
     }, 100);
 });
 
@@ -165,9 +70,12 @@ function setupSmoothScroll() {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navbarHeight = 70; // Altura da navbar
+                const elementPosition = targetElement.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
                 });
             }
         });

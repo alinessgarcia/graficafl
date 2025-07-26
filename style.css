@@ -411,92 +411,6 @@ main {
     line-height: 1.6;
 }
 
-/* Testimonials Section - Executive Style */
-.testimonials {
-    padding: 100px 0;
-    background: white;
-    position: relative;
-    min-height: 400px;
-}
-
-.testimonials::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 32px;
-    margin-top: 3rem;
-}
-
-.testimonial-card {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: left;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-}
-
-.testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, #fbbf24, #f59e0b);
-}
-
-.testimonial-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: #d1d5db;
-}
-
-.testimonial-card p {
-    font-style: italic;
-    font-size: 1rem;
-    color: #4b5563;
-    margin-bottom: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-    padding-left: 0;
-}
-
-.testimonial-card p::before {
-    content: '★★★★★';
-    display: block;
-    color: #fbbf24;
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    font-style: normal;
-}
-
-.client-name {
-    font-weight: 600;
-    color: #1f2937;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.client-name::before {
-    content: '👤';
-    font-size: 1rem;
-}
-
 /* Footer - Corporate */
 .footer {
     background: linear-gradient(135deg, #01848d 0%, #6200a5 100%);
@@ -1430,489 +1344,154 @@ main {
     }
 }
 
-/* ===== SEÇÃO DE CLIENTES - CARROSSEL MANUAL COMPLETO ===== */
+/* ==
+=== SEÇÃO DE CLIENTES - LIMPA E DEFINITIVA ===== */
 .clients-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    position: relative;
+    padding: 100px 0 !important;
+    background: url('images/desktop-clientes-depoimentos.jpg') center center/cover no-repeat !important;
+    background-size: cover !important;
+    position: relative !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Overlay removido conforme solicitado */
+
+.clients-section .container {
+    position: relative !important;
+    z-index: 1 !important;
 }
 
 .clients-section .section-title {
-    color: #1e293b;
-    margin-bottom: 4rem;
+    color: #4f008b !important;
+    margin-bottom: 4rem !important;
+    text-align: center !important;
+    font-size: 2.75rem !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }
 
-.clients-carousel {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-}
-
-/* Container do Swiper */
-.clients-carousel .swiper-wrapper {
-    align-items: stretch;
-}
-
-/* Estilo para os cards do carrossel - OCUPAM TODA A TELA */
-.clients-card {
-    background: linear-gradient(135deg, #8b5cf6, #ec4899);
-    color: white !important;
-    padding: 3rem;
-    border-radius: 0; /* Sem bordas para ocupar todo o espaço */
-    box-shadow: none;
-    font-style: italic;
-    position: relative;
-    overflow: hidden;
-    
-    /* Ocupar toda a largura e altura disponível */
-    width: 100% !important;
-    height: 280px;
-    min-height: 280px;
-    max-height: 280px;
-    
-    /* Layout flexível para distribuir conteúdo */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    /* Remover margens */
-    margin: 0 !important;
-}
-
-.clients-card::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 150px;
-    height: 150px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-}
-
-.clients-card::after {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: -30px;
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-}
-
-.clients-card p {
-    font-size: 1.25rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 2;
-    max-width: 90%;
-    font-weight: 400;
-}
-
-.client-name {
-    font-weight: 600;
-    font-style: normal;
-    opacity: 0.9;
-    font-size: 1rem;
-    position: relative;
-    z-index: 2;
-}
-
-
-
-/* Responsive para carrossel */
-@media (max-width: 768px) {
-    .clients-carousel {
-        padding: 0 50px;
-    }
-    
-    .clients-card {
-        height: 200px;
-        min-height: 200px;
-        max-height: 200px;
-        padding: 2rem;
-        margin: 0 10px;
-    }
-    
-    .clients-card p {
-        font-size: 1rem;
-        margin-bottom: 1.25rem;
-    }
-    
-    .client-name {
-        font-size: 0.9rem;
-    }
-    
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: 40px;
-        height: 40px;
-        margin-top: -20px;
-    }
-    
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .clients-carousel {
-        padding: 0 40px;
-    }
-    
-    .clients-card {
-        height: 180px;
-        min-height: 180px;
-        max-height: 180px;
-        padding: 1.5rem;
-        margin: 0 5px;
-    }
-    
-    .clients-card p {
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-    }
-    
-    .client-name {
-        font-size: 0.85rem;
-    }
-    
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: 36px;
-        height: 36px;
-        margin-top: -18px;
-    }
-    
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 12px;
-    }
-    
-    .swiper-button-next {
-        right: 5px;
-    }
-    
-    .swiper-button-prev {
-        left: 5px;
-    }
-    
-    /* Garantir que funcione como slide do Swiper */
-    width: 100%;
-    flex-shrink: 0;
-}
-
-
-
-.clients-card p {
-    color: white !important;
-    font-style: italic;
-    margin: 0;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    line-height: 1.4;
-}
-
-.clients-card .client-name {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-    font-style: normal;
-    color: white !important;
-    flex-shrink: 0;
-}
-
-/* Remover ícone do client-name nos cards do carrossel */
-.clients-card .client-name::before {
-    display: none;
-}
-
-/* Garantir que swiper ocupe o espaço corretamente */
-.clients-carousel {
-    margin-top: 2rem;
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-/* Forçar layout horizontal do Swiper */
-.clients-carousel .swiper-wrapper {
+.clients-content {
+    min-height: 200px !important;
     display: flex !important;
-    align-items: stretch;
-    transition-property: transform;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    text-align: center !important;
 }
 
-.clients-carousel .swiper-slide {
-    flex-shrink: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    position: relative;
-    transition-property: transform;
+/* REMOVER QUALQUER ESTILO DE CARROSSEL CONFLITANTE */
+.clients-card,
+.clients-carousel,
+.carousel-btn,
+.carousel-btn-prev,
+.carousel-btn-next,
+.swiper-pagination,
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active,
+.swiper-wrapper,
+.swiper-slide,
+.swiper-container {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
-.clients-section {
-    padding: 100px 0;
-    background: #f8fafc;
+/* SOBRESCREVER QUALQUER REGRA DE CARROSSEL */
+.clients-section .clients-card,
+.clients-section .clients-carousel,
+.clients-section .carousel-btn,
+.clients-section .swiper-pagination,
+.clients-section .swiper-wrapper,
+.clients-section .swiper-slide {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
-.swiper-pagination-bullet {
-    background: #8b5cf6;
-    opacity: 0.5;
-    transition: all 0.3s ease;
+/* Responsive para seção de clientes */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .clients-section {
+        padding: 80px 0 !important;
+        min-height: 90vh !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    .clients-section .section-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 3.5rem !important;
+    }
 }
 
-.swiper-pagination-bullet-active {
-    background: #8b5cf6;
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-.swiper-pagination {
-    bottom: -40px !important;
-}
-
-/* Responsivo para cards do carrossel */
 @media (max-width: 768px) {
-    .clients-card {
-        height: 180px;
-        min-height: 180px;
-        max-height: 180px;
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .clients-card {
-        height: 160px;
-        min-height: 160px;
-        max-height: 160px;
-        padding: 1.25rem;
-    }
-
-    .clients-card p {
-        font-size: 0.9rem;
-        line-height: 1.3;
-    }
-}
-/
-* Garantir que o Swiper funcione corretamente em todos os dispositivos */
-.clients-carousel .swiper-container {
-    width: 100%;
-    height: auto;
-}
-
-.clients-carousel .swiper-wrapper {
-    align-items: stretch !important;
-    height: auto !important;
-}
-
-.clients-carousel .swiper-slide {
-    display: flex !important;
-    align-items: stretch !important;
-}
-
-/* Forçar layout horizontal no mobile */
-@media (max-width: 768px) {
-    .clients-carousel .swiper-slide {
-        width: 100% !important;
-        flex-shrink: 0 !important;
-    }
-    
-    .clients-carousel .swiper-wrapper {
+    .clients-section {
+        padding: 20px 0 40px 0 !important;
+        min-height: 100vh !important;
+        background: url('images/cliente-mobile.png') center center/cover no-repeat !important;
+        background-size: cover !important;
         display: flex !important;
-        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
     }
-}
 
-/* Garantir que não haja empilhamento vertical */
-.clients-carousel .swiper-slide.clients-card {
-    margin-bottom: 0 !important;
-    margin-right: 0 !important;
-}.
-client-name {
-    font-weight: 700;
-    font-style: normal;
-    opacity: 0.95;
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 2;
-    letter-spacing: 0.5px;
-}
-
-/* Botões de navegação customizados - BONITOS */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.carousel-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-btn:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-.carousel-btn svg {
-    width: 24px;
-    height: 24px;
-    color: #8b5cf6;
-    transition: color 0.3s ease;
-}
-
-.carousel-btn:hover svg {
-    color: #7c3aed;
-}
-
-.carousel-btn-prev {
-    left: 20px;
-}
-
-.carousel-btn-next {
-    right: 20px;
-}
-
-/* Paginação customizada */
-.clients-section .swiper-pagination {
-    bottom: -60px;
-    text-align: center;
-}
-
-.clients-section .swiper-pagination-bullet {
-    width: 14px;
-    height: 14px;
-    background: #cbd5e1;
-    opacity: 1;
-    transition: all 0.3s ease;
-    margin: 0 6px;
-}
-
-.clients-section .swiper-pagination-bullet-active {
-    background: linear-gradient(135deg, #8b5cf6, #ec4899);
-    transform: scale(1.3);
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-}
-
-/* Responsive para carrossel */
-@media (max-width: 768px) {
-    .clients-carousel {
-        max-width: 100%;
-        margin: 0 20px;
-        border-radius: 20px;
+    .clients-section .section-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 2rem !important;
+        margin-top: 0 !important;
     }
-    
-    .clients-card {
-        height: 250px;
-        min-height: 250px;
-        max-height: 250px;
-        padding: 2.5rem 2rem;
+
+    .clients-section .section-title::after {
+        bottom: -8px !important;
     }
-    
-    .clients-card p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-    
-    .client-name {
-        font-size: 1rem;
-    }
-    
-    .carousel-btn {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .carousel-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .carousel-btn-prev {
-        left: 15px;
-    }
-    
-    .carousel-btn-next {
-        right: 15px;
+
+    .clients-content {
+        min-height: 100px !important;
+        font-size: 1.1rem !important;
     }
 }
 
 @media (max-width: 480px) {
-    .clients-carousel {
-        margin: 0 10px;
-        border-radius: 16px;
+    .clients-section {
+        padding: 15px 0 40px 0 !important;
+        min-height: 100vh !important;
+        background: url('images/cliente-mobile.png') center center/cover no-repeat !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
     }
-    
-    .clients-card {
-        height: 220px;
-        min-height: 220px;
-        max-height: 220px;
-        padding: 2rem 1.5rem;
+
+    .clients-section .section-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 1.5rem !important;
+        margin-top: 0 !important;
     }
-    
-    .clients-card p {
-        font-size: 1rem;
-        margin-bottom: 1.25rem;
-        line-height: 1.5;
+
+    .clients-section .section-title::after {
+        bottom: -6px !important;
     }
-    
-    .client-name {
-        font-size: 0.95rem;
+
+    .clients-content {
+        min-height: 80px !important;
+        font-size: 1rem !important;
     }
-    
-    .carousel-btn {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .carousel-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .carousel-btn-prev {
-        left: 10px;
-    }
-    
-    .carousel-btn-next {
-        right: 10px;
-    }
-    
-    .clients-section .swiper-pagination {
-        bottom: -50px;
-    }
-    
-    .clients-section .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        margin: 0 4px;
-    }
+}
+
+/* Aju
+ste para scroll da navbar */
+html {
+    scroll-padding-top: 70px;
+    /* Altura da navbar */
+}
+
+#clientes {
+    scroll-margin-top: 70px;
+    /* Margem específica para a seção clientes */
 }
