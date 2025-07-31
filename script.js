@@ -369,7 +369,7 @@ function setupServicePopups() {
 
     if (ctaButton) {
         ctaButton.addEventListener('click', function () {
-            window.open('https://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank', 'noopener,noreferrer');
+            window.open('http://wa.me/5513988032386?text=Olá! Gostaria de conhecer mais sobre os serviços da Gráfica FL. Podem me ajudar?', '_blank', 'noopener,noreferrer');
         });
     }
 
@@ -439,11 +439,11 @@ function openServicePopup(serviceType) {
             </div>
             
             <div class="popup-actions">
-                <a href="https://wa.me/5513988032386?text=${encodeURIComponent(service.whatsappMessage)}" 
+                <a href="http://wa.me/5513988032386?text=${encodeURIComponent(service.whatsappMessage)}" 
                    target="_blank" class="popup-btn popup-btn-primary ${service.icon}">
                     <span class="whatsapp-text">Solicitar Orçamento</span>
                 </a>
-                <a href="https://wa.me/5513988032386?text=${encodeURIComponent(service.whatsappMessage)}" 
+                <a href="http://wa.me/5513988032386?text=${encodeURIComponent(service.whatsappMessage)}" 
                    target="_blank" class="popup-btn popup-btn-secondary">
                     WhatsApp
                 </a>
